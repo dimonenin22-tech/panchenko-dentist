@@ -312,6 +312,26 @@ section {
   color: #ffffff;
 }
 
+.top-bar__text-short {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .top-bar__text-full {
+    display: none;
+  }
+  .top-bar__text-short {
+    display: inline;
+  }
+  .top-bar__links {
+    display: none;
+  }
+  .top-bar__inner {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 /* Site Header */
 .site-header {
   position: sticky;
@@ -327,13 +347,17 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  min-height: 72px;
+  height: auto;
+  padding: 10px 0;
+  gap: 16px;
 }
 
 .brand {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .brand__icon {
@@ -345,6 +369,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .brand__text {
@@ -365,6 +390,19 @@ section {
   font-weight: 500;
 }
 
+@media (max-width: 640px) {
+  .brand__sub {
+    display: none;
+  }
+  .brand__name {
+    font-size: 1.05rem;
+  }
+  .brand__icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
 .site-nav {
   display: none;
 }
@@ -378,8 +416,9 @@ section {
 .site-nav__list {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
   list-style: none;
+  white-space: nowrap;
 }
 
 .site-nav__list a {
@@ -395,7 +434,8 @@ section {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
+  flex-shrink: 0;
 }
 
 .phone-link {
@@ -404,9 +444,17 @@ section {
   gap: 8px;
   font-weight: 700;
   color: var(--color-dark);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 640px) and (max-width: 991px) {
+  .phone-link {
+    display: flex;
+  }
+}
+
+@media (min-width: 1200px) {
   .phone-link {
     display: flex;
   }
@@ -414,6 +462,24 @@ section {
 
 .phone-link:hover {
   color: var(--color-primary);
+}
+
+.btn-text-compact {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .btn-text-full {
+    display: none;
+  }
+  .btn-text-compact {
+    display: inline;
+  }
+  .header-cta {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
 }
 
 /* Hero Section */
@@ -900,6 +966,9 @@ section {
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-card);
   overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 .pricing-table {
